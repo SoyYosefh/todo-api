@@ -9,7 +9,16 @@ export function crearTask(titulo, descripcion) {
         titulo,
         descripcion,
         completada: false,
-        fechaCreacion: new Date()
+        fechaCreacion: new Date(), // Formato fecha de creación en ISO 8601
+        fechaCreacionLegible: new Intl.DateTimeFormat('es-ES', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+        }).format(new Date()) // Formato legible para mostrar
     };
     tasks.push(task);
     return task;
@@ -41,23 +50,23 @@ export function deleteTask(id) {
 }
 
 export function getStatistics() {
-    const totalTasks = tasks.length;
-    const completedTasks = tasks.filter(task => task.completada).length;
-    const pendingTasks = totalTasks - completedTasks;
+    // Numero de task totales
+    // Numero de task completadas (true)
+    // Numero de task pendientes (false)
+    // Task más reciente
+    // Task más antigua
 
-    const mostRecentTask = tasks.reduce((latest, task) =>
-        latest.fechaCreacion > task.fechaCreacion ? latest : task, tasks[0]
-    );
-
-    const oldestTask = tasks.reduce((earliest, task) =>
-        earliest.fechaCreacion < task.fechaCreacion ? earliest : task, tasks[0]
-    );
+    const tareasTotales = tasks.length;
+    const tareasCompletadas = tasks.filter(task => task.completada == true).length;
+    const tareasPendientes = tasks.filter(task => task.completada == false).length;
+    const tareasMasReciente = tasks.reduce((newest, task) => new Date(task.fechaCreacion) > new Date(newest.fechaCreacion) ? task : newest);
+    const tareasMasAntigua = tasks.reduce((oldest, task) => new Date(task.fechaCreacion) < new Date(oldest.fechaCreacion) ? task : oldest);
 
     return {
-        totalTasks,
-        mostRecentTask,
-        oldestTask,
-        completedTasks,
-        pendingTasks
+        tareasTotales,
+        tareasCompletadas,
+        tareasPendientes,
+        tareasMasReciente,
+        tareasMasAntigua
     };
 }

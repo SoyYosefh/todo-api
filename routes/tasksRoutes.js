@@ -11,6 +11,11 @@ import {
 
 const router = express.Router();
 
+
+router.get('/stats', (req, res) => {
+    res.json(getStatistics());
+});
+
 router.post('/', (req, res) => {
     const { titulo, descripcion } = req.body;
     if (!titulo) {
@@ -52,8 +57,5 @@ router.delete('/:id', (req, res) => {
     }
 });
 
-router.get('/stats', (req, res) => {
-    res.json(getStatistics());
-});
 
 export default router;

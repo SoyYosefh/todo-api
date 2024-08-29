@@ -15,6 +15,12 @@ Esta API permite gestionar tareas mediante operaciones de creación, lectura, ac
 ## Requisitos Previos
 
 - Tener Node.js y npm instalados.
+- Instalar las dependencias
+
+    ```bash
+    npm install
+    ```
+
 - Tener el servidor corriendo. Puedes iniciar el servidor con:
   
     ```bash
@@ -25,9 +31,9 @@ Asegúrate de que el servidor esté corriendo en [http://localhost:3000](http://
 
 ## Rutas Disponibles
 
-### 1. Crear una Tarea
+### <span style="color: orange;">1. Crear una Tarea </span>
 
-**Método:** POST
+**Método:** <span style="color: #FDFD96; font-weight: bold;">POST</span>
 
 **URL:** [http://localhost:3000/tasks](http://localhost:3000/tasks)
 
@@ -36,10 +42,10 @@ Asegúrate de que el servidor esté corriendo en [http://localhost:3000](http://
 **Cuerpo de la Solicitud (JSON):**
 
 ```json
-    {
-        "titulo": "Estudiar Node.js",
-        "descripcion": "Completar el curso de Node.js en línea."
-    }
+{
+    "titulo": "Estudiar Node.js",
+    "descripcion": "Completar el curso de Node.js en línea."
+}
 ```
 
 **Respuesta Exitosa:**
@@ -51,9 +57,9 @@ Asegúrate de que el servidor esté corriendo en [http://localhost:3000](http://
 
 - **Código:** 400 Bad Request, si falta el título.
 
-### 2. Obtener Todas las Tareas
+### <span style="color: orange;">2. Obtener Todas las Tareas</span>
 
-**Método:** GET
+**Método:** <span style="color: #77DD77; font-weight: bold;">GET</span>
 **URL:** <http://localhost:3000/tasks>
 **Descripción:** Devuelve una lista de todas las tareas.
 
@@ -62,9 +68,9 @@ Asegúrate de que el servidor esté corriendo en [http://localhost:3000](http://
 - **Código:** 200 OK
 - **Cuerpo:** Array de tareas.
 
-### 3. Obtener una Tarea por ID
+### <span style="color: orange;">3. Obtener una Tarea por ID</span>
 
-**Método:** GET
+**Método:** <span style="color: #77DD77; font-weight: bold;">GET</span>
 
 **URL:** <http://localhost:3000/tasks/:id>
 
@@ -83,9 +89,9 @@ Asegúrate de que el servidor esté corriendo en [http://localhost:3000](http://
 
 - **Código:** 404 Not Found, si la tarea no existe.
   
-### 4. Editar una Tarea
+### <span style="color: orange;">4. Editar una Tarea</span>
 
-**Método:** PUT
+**Método:** <span style="color: #007ACC; font-weight: bold;">PUT</span> 
 
 **URL:** <http://localhost:3000/tasks/:id>
 
@@ -112,9 +118,9 @@ Asegúrate de que el servidor esté corriendo en [http://localhost:3000](http://
 
 - **Código:** 404 Not Found, si la tarea no existe.
 
-### 5. Eliminar una Tarea
+### <span style="color: orange;">5. Eliminar una Tarea  </span>
 
-**Método:** DELETE
+**Método:** <span style="color: #FF6961; font-weight: bold;">DELETE</span>
 
 **URL:** <http://localhost:3000/tasks/:id>
 
@@ -132,9 +138,9 @@ Asegúrate de que el servidor esté corriendo en [http://localhost:3000](http://
 **Errores:**
 **Código:** 404 Not Found, si la tarea no existe.
 
-### 6. Obtener Estadísticas de Tareas
+### <span style="color: orange;">6. Obtener Estadísticas de Tareas </span>
 
-**Método:** GET
+**Método:** <span style="color: #77DD77; font-weight: bold;">GET</span>
 
 **URL:** <http://localhost:3000/tasks/stats>
 
